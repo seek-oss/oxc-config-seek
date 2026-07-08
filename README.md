@@ -1,5 +1,9 @@
 # oxc-config-seek
 
+> [!WARNING]
+> This project is still under active development and is not yet ready for
+> production use. APIs and behaviour may change without notice.
+
 Shareable [oxlint] and [oxfmt] config for SEEK: the [OXC] toolchain equivalent
 of [`eslint-config-seek`]
 
