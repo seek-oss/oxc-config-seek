@@ -1,0 +1,9 @@
+{
+  "extends": "tsconfig-seek",
+  "compilerOptions": {
+    "noEmit": true,
+    "incremental": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": ["src", "oxlint.config.ts", "oxfmt.config.ts", "tsdown.config.ts"]
+}

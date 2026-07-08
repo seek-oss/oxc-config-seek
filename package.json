@@ -1,0 +1,85 @@
+{
+  "name": "oxc-config-seek",
+  "version": "0.0.0",
+  "description": "Shareable oxlint and oxfmt config for SEEK",
+  "homepage": "https://github.com/seek-oss/oxc-config-seek#readme",
+  "bugs": {
+    "url": "https://github.com/seek-oss/oxc-config-seek/issues"
+  },
+  "license": "MIT",
+  "author": "SEEK",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seek-oss/oxc-config-seek.git"
+  },
+  "files": [
+    "dist",
+    "oxfmt.config.ts"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./base": {
+      "import": "./dist/base.mjs",
+      "require": "./dist/base.cjs"
+    },
+    "./extensions": {
+      "import": "./dist/extensions.mjs",
+      "require": "./dist/extensions.cjs"
+    },
+    "./vitest": {
+      "import": "./dist/vitest/index.mjs",
+      "require": "./dist/vitest/index.cjs"
+    },
+    "./vitest/base": {
+      "import": "./dist/vitest/base.mjs",
+      "require": "./dist/vitest/base.cjs"
+    },
+    "./package.json": "./package.json",
+    "./oxfmt": "./oxfmt.config.ts"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "format": "oxlint --fix && oxfmt",
+    "lint": "oxlint && oxfmt --check",
+    "test": "pnpm run \"/^test:/\"",
+    "test:base": "oxlint --config src/base.ts fixtures",
+    "test:react": "oxlint --config src/index.ts fixtures",
+    "test:vitest": "oxlint --config src/vitest/index.ts fixtures",
+    "test:vitest-base": "oxlint --config src/vitest/base.ts fixtures",
+    "version": "changeset version && oxfmt",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/core": "0.18.3",
+    "@changesets/cli": "2.31.0",
+    "@changesets/get-github-info": "0.8.0",
+    "@skuba-lib/changesets-changelog": "1.0.1",
+    "oxfmt": "0.57.0",
+    "oxlint": "1.72.0",
+    "publint": "0.3.17",
+    "tsconfig-seek": "2.0.0",
+    "tsdown": "0.21.0",
+    "typescript": "6.0.3"
+  },
+  "peerDependencies": {
+    "oxfmt": ">=0.57.0",
+    "oxlint": ">=1.72.0",
+    "typescript": ">=5.5.4"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.10.0"
+    }
+  },
+  "engines": {
+    "node": ">=24.18.0"
+  }
+}
