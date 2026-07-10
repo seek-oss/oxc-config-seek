@@ -120,7 +120,10 @@ export default defineConfig({
     'no-label-var': 'error',
     'no-shadow': 'error',
     // oxc parity: `no-undef-init` is not implemented by oxlint. Dropped.
-    'no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
+    'no-unused-vars': [
+      'error',
+      { argsIgnorePattern: '^_', ignoreRestSiblings: true },
+    ],
 
     // Node rules. In ESLint these are deprecated core rules; oxlint reimplements
     // them under the `node` plugin (except `no-process-exit`, see below).
@@ -229,7 +232,10 @@ export default defineConfig({
         // in oxlint and only reports under `--type-aware` (requires the
         // `oxlint-tsgolint` package); without it the rule is inert. Options are
         // passed through as-is.
-        'typescript/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
+        'typescript/consistent-type-imports': [
+          'error',
+          { fixStyle: 'inline-type-imports' },
+        ],
         'typescript/consistent-type-exports': [
           'error',
           { fixMixedExportsWithInlineTypeSpecifier: true },

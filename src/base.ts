@@ -13,7 +13,10 @@ export default defineConfig({
       // a `{spec,test}` brace group in oxlint's glob syntax. (oxc parity, minor:
       // oxlint actually accepts the `@(spec|test)` extglob too - `@oxlint/migrate`
       // emits it verbatim - so this rewrite is cosmetic, not required.)
-      files: [`**/__tests__/**/*.{${allExtensions}}`, `**/*.{spec,test}.{${allExtensions}}`],
+      files: [
+        `**/__tests__/**/*.{${allExtensions}}`,
+        `**/*.{spec,test}.{${allExtensions}}`,
+      ],
       // Declaring the plugin inside the override scopes Jest rules (and their
       // default `correctness` set) to test files only.
       plugins: ['jest'],
