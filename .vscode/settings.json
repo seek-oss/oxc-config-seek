@@ -3,9 +3,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "explicit",
-    "source.fixAll.ruff": "explicit",
-    "source.organizeImports.ruff": "explicit"
+    "source.fixAll.oxc": "explicit"
   },
   "oxc.enable.oxfmt": true,
   "oxc.enable.oxlint": true,
