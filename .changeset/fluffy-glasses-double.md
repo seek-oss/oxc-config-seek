@@ -1,5 +1,5 @@
 ---
-"oxc-config-seek": major
+'oxc-config-seek': major
 ---
 
 Release stable version
