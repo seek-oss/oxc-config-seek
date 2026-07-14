@@ -1,5 +1,5 @@
 ---
-"oxc-config-seek": patch
+'oxc-config-seek': patch
 ---
 
 test
