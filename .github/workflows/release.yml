@@ -43,6 +43,7 @@ jobs:
         with:
           version: pnpm run version
           publish: pnpm run release
+          commitMode: github-api
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
