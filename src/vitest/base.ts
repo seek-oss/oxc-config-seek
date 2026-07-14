@@ -9,10 +9,7 @@ export default defineConfig({
   extends: [shared],
   overrides: [
     {
-      files: [
-        `**/__tests__/**/*.{${allExtensions}}`,
-        `**/*.{spec,test}.{${allExtensions}}`,
-      ],
+      files: [`**/__tests__/**/*.{${allExtensions}}`, `**/*.{spec,test}.{${allExtensions}}`],
       plugins: ['vitest'],
       // oxc parity (minor): `@vitest/eslint-plugin`'s recommended sets no
       // globals, so `@oxlint/migrate` emits no env here. This `vitest: true`
