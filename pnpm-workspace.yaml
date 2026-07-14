@@ -5,3 +5,5 @@ ignorePatchFailures: false
 minimumReleaseAge: 4320
 strictDepBuilds: true
 trustPolicy: no-downgrade
+patchedDependencies:
+  '@changesets/cli@2.31.0': patches/@changesets__cli@2.31.0.patch # changesets currently calls `npm info` unconditionally, which `pnOmFail` blocks. This patch replaces that call with the pnpm equivalent. This is set to change in v3 https://github.com/changesets/changesets/issues/1945
