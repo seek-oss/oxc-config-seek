@@ -48,6 +48,9 @@ export default defineConfig({
     // oxc parity: `react/prop-types` is not implemented by oxlint (it targets
     // runtime prop-types, largely obsolete under TypeScript). It was OFF in
     // eslint-config-seek anyway, so dropping it changes nothing.
-    'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'ignore', propElementValues: 'always' }],
+    'react/jsx-curly-brace-presence': [
+      'error',
+      { props: 'never', children: 'ignore', propElementValues: 'always' },
+    ],
   },
 });

@@ -13,7 +13,13 @@ export const defaults = {
   quoteProps: 'as-needed',
   proseWrap: 'always',
   sortImports: {
-    groups: ['builtin', 'external', ['internal', 'subpath'], ['parent', 'sibling', 'index'], 'unknown'],
+    groups: [
+      'builtin',
+      'external',
+      ['internal', 'subpath'],
+      ['parent', 'sibling', 'index'],
+      'unknown',
+    ],
     newlinesBetween: true,
     ignoreCase: false,
     order: 'asc',
