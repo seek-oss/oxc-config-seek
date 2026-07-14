@@ -5,7 +5,7 @@ export const defaults = {
   tabWidth: 2,
   trailingComma: 'all',
   endOfLine: 'lf',
-  printWidth: 120,
+  printWidth: 80,
   sortPackageJson: true,
   semi: true,
   arrowParens: 'always',
