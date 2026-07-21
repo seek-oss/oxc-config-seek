@@ -1,6 +1,6 @@
 {
   "name": "oxc-config-seek",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Shareable oxlint and oxfmt config for SEEK",
   "homepage": "https://github.com/seek-oss/oxc-config-seek#readme",
   "bugs": {
