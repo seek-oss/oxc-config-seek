@@ -4,16 +4,16 @@
 > This project is still under active development and is not yet ready for
 > production use. APIs and behaviour may change without notice.
 
-Shareable [oxlint] and [oxfmt] config for SEEK: the [OXC] toolchain equivalent
+Shareable [Oxfmt] and [Oxlint] config for SEEK: the [Oxc] toolchain equivalent
 of [`eslint-config-seek`]
 
 It aims for behavioural parity with those configs. Where oxlint or oxfmt cannot
 express something the ESLint/Prettier setup did, the source files carry an inline
 `// oxc parity:` comment recording the decision. See [Parity notes](#parity-notes).
 
-[oxc]: https://oxc.rs
-[oxlint]: https://oxc.rs/docs/guide/usage/linter
-[oxfmt]: https://oxc.rs/docs/guide/usage/formatter
+[Oxc]: https://oxc.rs
+[Oxfmt]: https://oxc.rs/docs/guide/usage/formatter
+[Oxlint]: https://oxc.rs/docs/guide/usage/linter
 [`eslint-config-seek`]: https://github.com/seek-oss/eslint-config-seek
 
 ## Requirements
