@@ -29,13 +29,13 @@
     "build": "tsdown",
     "format": "oxlint --fix && oxfmt",
     "lint": "oxlint && oxfmt --check",
+    "release": "changeset publish",
     "test": "pnpm run \"/^test:/\"",
     "test:base": "oxlint --config src/base.ts fixtures",
     "test:react": "oxlint --config src/index.ts fixtures",
     "test:vitest": "oxlint --config src/vitest/index.ts fixtures",
     "test:vitest-base": "oxlint --config src/vitest/base.ts fixtures",
-    "version": "changeset version && oxfmt",
-    "release": "changeset publish"
+    "version": "changeset version && oxfmt"
   },
   "devDependencies": {
     "@arethetypeswrong/core": "0.18.3",
