@@ -23,7 +23,7 @@ import { js as jsExtensions, ts as tsExtensions } from './extensions.ts';
 // oxc parity (DISCUSS - rule-enablement model): this is the biggest structural
 // difference from eslint-config-seek, and from what `@oxlint/migrate` produces.
 // eslint-config-seek enables its base rules PLUS whole presets: typescript-eslint
-// recommended + stylistic, eslint-plugin-react recommended, jest/vitest
+// recommended + stylistic, eslint-plugin-react recommended, vitest
 // recommended, and import-x errors + warnings. This config instead enables the
 // plugins and relies on oxlint's DEFAULT `correctness` category to approximate
 // those presets. `@oxlint/migrate` takes the opposite (and more faithful)

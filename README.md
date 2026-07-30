@@ -39,8 +39,8 @@ export default defineConfig({
 
 | Entrypoint                    | Project type      |
 | ----------------------------- | ----------------- |
-| `oxc-config-seek`             | React + Jest      |
-| `oxc-config-seek/base`        | No React + Jest   |
+| `oxc-config-seek`             | React             |
+| `oxc-config-seek/base`        | No React          |
 | `oxc-config-seek/vitest`      | React + Vitest    |
 | `oxc-config-seek/vitest/base` | No React + Vitest |
 
@@ -48,8 +48,7 @@ export default defineConfig({
 to build globs, mirroring `eslint-config-seek/extensions`.
 
 Composition mirrors `eslint-config-seek`: `.` = `base` + `react`, `base` =
-shared + Jest, `vitest` = `vitest/base` + `react`, `vitest/base` = shared +
-Vitest.
+shared, `vitest` = `vitest/base` + `react`, `vitest/base` = shared + Vitest.
 
 ## Formatting (`oxfmt`)
 
