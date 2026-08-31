@@ -1,9 +1,7 @@
 import { defineConfig } from 'oxlint';
 
-import { js as jsExtensions, ts as tsExtensions } from '../extensions.ts';
+import { allExtensions } from '../internal.ts';
 import shared from '../shared.ts';
-
-const allExtensions = [...jsExtensions, ...tsExtensions].join(',');
 
 export default defineConfig({
   extends: [shared],

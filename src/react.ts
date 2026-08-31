@@ -1,13 +1,6 @@
-import { fileURLToPath } from 'node:url';
-
 import { defineConfig } from 'oxlint';
 
-import { js as jsExtensions, ts as tsExtensions } from './extensions.ts';
-
-const allGlob = `**/*.{${[...jsExtensions, ...tsExtensions].join(',')}}`;
-
-const resolvePlugin = (specifier: string) =>
-  fileURLToPath(import.meta.resolve(specifier));
+import { allGlob, resolvePlugin } from './internal.ts';
 
 export default defineConfig({
   plugins: ['react'],

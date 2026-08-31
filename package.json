@@ -29,10 +29,10 @@
   },
   "scripts": {
     "build": "tsdown",
-    "format": "oxlint --ignore-pattern 'fixtures/**' --fix && oxfmt",
-    "lint": "oxlint --ignore-pattern 'fixtures/**' && oxfmt --check && tsc --noEmit",
+    "format": "pnpm build && oxlint --ignore-pattern 'fixtures/**' --fix && oxfmt",
+    "lint": "pnpm build && oxlint --ignore-pattern 'fixtures/**' && oxfmt --check && tsc --noEmit",
     "release": "changeset publish",
-    "test": "pnpm run \"/^test:/\"",
+    "test": "pnpm build && pnpm run \"/^test:/\"",
     "test:availability": "node --test \"src/availability.test.ts\"",
     "test:base": "oxlint --config src/base.ts fixtures/smoke",
     "test:parity": "node fixtures/parity.ts",
