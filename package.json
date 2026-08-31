@@ -21,46 +21,63 @@
     "./base": "./dist/base.mjs",
     "./extensions": "./dist/extensions.mjs",
     "./oxfmt": "./dist/oxfmt/index.mjs",
+    "./plugins/react": "./dist/plugins/react.mjs",
+    "./plugins/typescript": "./dist/plugins/typescript.mjs",
     "./vitest": "./dist/vitest/index.mjs",
     "./vitest/base": "./dist/vitest/base.mjs",
     "./package.json": "./package.json"
   },
   "scripts": {
     "build": "tsdown",
-    "format": "oxlint --fix && oxfmt",
-    "lint": "oxlint && oxfmt --check",
+    "format": "pnpm build && oxlint --ignore-pattern 'fixtures/**' --fix && oxfmt",
+    "lint": "pnpm build && oxlint --ignore-pattern 'fixtures/**' && oxfmt --check && tsc --noEmit",
     "release": "changeset publish",
-    "test": "pnpm run \"/^test:/\"",
-    "test:base": "oxlint --config src/base.ts fixtures",
-    "test:react": "oxlint --config src/index.ts fixtures",
-    "test:vitest": "oxlint --config src/vitest/index.ts fixtures",
-    "test:vitest-base": "oxlint --config src/vitest/base.ts fixtures",
+    "test": "pnpm build && pnpm run \"/^test:/\"",
+    "test:availability": "node --test \"src/availability.test.ts\"",
+    "test:base": "oxlint --config src/base.ts fixtures/smoke",
+    "test:parity": "node fixtures/parity.ts",
+    "test:react": "oxlint --config src/index.ts fixtures/smoke",
+    "test:rules": "node --test \"src/plugins/*.test.ts\"",
+    "test:vitest": "oxlint --config src/vitest/index.ts fixtures/smoke",
+    "test:vitest-base": "oxlint --config src/vitest/base.ts fixtures/smoke",
     "version": "changeset version && oxfmt"
   },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "eslint-plugin-cypress": "^6.4.4",
+    "eslint-plugin-react": "^7.37.5",
+    "oxlint-plugin-eslint": "^1.80.0",
+    "oxlint-plugin-import-zod": "^1.0.1"
+  },
   "devDependencies": {
-    "@arethetypeswrong/core": "0.18.3",
-    "@changesets/cli": "2.31.0",
-    "@changesets/get-github-info": "0.8.0",
+    "@arethetypeswrong/core": "0.18.5",
+    "@changesets/cli": "3.0.1",
     "@skuba-lib/changesets-changelog": "1.0.1",
-    "oxfmt": "0.57.0",
-    "oxlint": "1.72.0",
-    "publint": "0.3.17",
+    "@types/node": "26.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-seek": "15.0.6",
+    "oxfmt": "0.65.0",
+    "oxlint": "1.80.0",
+    "oxlint-tsgolint": "7.0.2001",
+    "prettier": "3.9.6",
+    "publint": "0.3.24",
     "tsconfig-seek": "2.0.0",
-    "tsdown": "0.21.0",
+    "tsdown": "0.22.14",
     "typescript": "6.0.3"
   },
   "peerDependencies": {
-    "oxfmt": ">=0.57.0",
-    "oxlint": ">=1.72.0",
+    "oxfmt": ">=0.65.0",
+    "oxlint": ">=1.82.0",
+    "oxlint-tsgolint": ">=7.0.2001",
     "typescript": ">=5.5.4"
   },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "11.10.0"
+      "version": "11.24.0"
     }
   },
   "engines": {
-    "node": ">=24.18.0"
+    "node": ">=22.18.0"
   }
 }

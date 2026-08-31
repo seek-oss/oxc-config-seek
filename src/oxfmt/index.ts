@@ -5,15 +5,15 @@ export const defaults = {
   tabWidth: 2,
   trailingComma: 'all',
   printWidth: 80,
-  sortPackageJson: {
-    sortScripts: true,
-  },
+
+  sortPackageJson: false,
   ignorePatterns: [
+    'dist',
+    'pnpm-lock.yaml',
     '/.gantry/**/*.yaml',
     '/.gantry/**/*.yml',
     'gantry*.yaml',
     'gantry*.yml',
-    'pnpm-lock.yaml',
     'coverage',
   ],
 } satisfies OxfmtConfig;
