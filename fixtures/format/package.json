@@ -1,0 +1,6 @@
+{
+  "name": "format-fixture",
+  "version": "1.0.0",
+  "scripts": { "b": "b", "a": "a" },
+  "dependencies": { "z": "1", "a": "2" }
+}
