@@ -3,19 +3,7 @@
   "compilerOptions": {
     "noEmit": true,
     "incremental": true,
-    "allowImportingTsExtensions": true,
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "target": "es2023",
-    "types": ["node"],
-    "skipLibCheck": true
+    "allowImportingTsExtensions": true
   },
-  "include": [
-    "src",
-    "fixtures",
-    "oxlint.config.ts",
-    "oxfmt.config.ts",
-    "tsdown.config.ts"
-  ],
-  "exclude": ["fixtures/corpus", "fixtures/format", "fixtures/smoke"]
+  "include": ["src", "oxlint.config.ts", "oxfmt.config.ts", "tsdown.config.ts"]
 }
