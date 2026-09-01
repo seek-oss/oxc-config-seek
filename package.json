@@ -29,8 +29,8 @@
   },
   "scripts": {
     "build": "tsdown",
-    "format": "pnpm build && oxlint --ignore-pattern 'fixtures/**' --fix && oxfmt",
-    "lint": "pnpm build && oxlint --ignore-pattern 'fixtures/**' && oxfmt --check",
+    "format": "pnpm build && oxlint --fix && oxfmt",
+    "lint": "pnpm build && oxlint && oxfmt --check",
     "release": "changeset publish",
     "test": "pnpm build && pnpm run \"/^test:/\"",
     "test:base": "oxlint --config src/base.ts fixtures",
