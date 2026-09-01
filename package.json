@@ -55,7 +55,6 @@
     "oxfmt": "0.65.0",
     "oxlint": "1.80.0",
     "oxlint-tsgolint": "7.0.2001",
-    "prettier": "3.9.6",
     "publint": "0.3.24",
     "tsconfig-seek": "2.0.0",
     "tsdown": "0.22.14",

@@ -6,6 +6,7 @@
       "repo": "seek-oss/oxc-config-seek"
     }
   ],
+  "format": "oxfmt",
   "commit": false,
   "linked": [],
   "access": "public",
