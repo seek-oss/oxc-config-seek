@@ -33,7 +33,6 @@
     "lint": "pnpm build && oxlint --ignore-pattern 'fixtures/**' && oxfmt --check",
     "release": "changeset publish",
     "test": "pnpm build && pnpm run \"/^test:/\"",
-    "test:availability": "node --test \"src/availability.test.ts\"",
     "test:base": "oxlint --config src/base.ts fixtures",
     "test:react": "oxlint --config src/index.ts fixtures",
     "test:vitest": "oxlint --config src/vitest/index.ts fixtures",
@@ -62,7 +61,7 @@
   },
   "peerDependencies": {
     "oxfmt": ">=0.65.0",
-    "oxlint": ">=1.82.0",
+    "oxlint": ">=1.80.0",
     "oxlint-tsgolint": ">=7.0.2001",
     "typescript": ">=5.5.4"
   },
