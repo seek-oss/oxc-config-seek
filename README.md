@@ -9,9 +9,7 @@ of [`eslint-config-seek`]
 
 It aims for behavioural parity with those configs. Every rule
 `eslint-config-seek` enables is listed explicitly here at its original severity,
-rather than approximated by oxlint's defaults. Parity is enforced in CI: both
-toolchains are run over the same fixtures and any difference in their findings
-fails the build.
+rather than approximated by oxlint's defaults.
 
 Two rules cannot be reproduced. They are listed in [Known gaps](#known-gaps).
 
@@ -35,9 +33,7 @@ information, so this config sets `options.typeAware`, which needs
 
 A handful of rules oxlint does not implement natively are supplied by real
 ESLint plugins running through oxlint's `jsPlugins` bridge. Those plugins ship
-as dependencies of this package, so nothing extra needs installing. Note that
-`jsPlugins` is **alpha and not covered by oxlint's semver**, which is why the
-`oxlint` peer range is pinned to a single minor.
+as dependencies of this package, so nothing extra needs installing.
 
 Because `eslint`, `react` and `typescript` are reserved plugin names in oxlint,
 those rules register under a `-js` alias. Use these names if you need to
