@@ -17,6 +17,6 @@ export const defaults = {
     'pnpm-lock.yaml',
     'coverage',
   ],
-} satisfies OxfmtConfig;
+} as const satisfies OxfmtConfig;
 
 export default defineConfig(defaults);
