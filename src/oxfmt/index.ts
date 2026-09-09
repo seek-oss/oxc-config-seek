@@ -9,6 +9,7 @@ export const defaults = {
     sortScripts: true,
   },
   ignorePatterns: [
+    'dist',
     '/.gantry/**/*.yaml',
     '/.gantry/**/*.yml',
     'gantry*.yaml',

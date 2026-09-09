@@ -1,11 +1,12 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "$schema": "https://unpkg.com/@changesets/config@4.0.0/schema.json",
   "changelog": [
     "@skuba-lib/changesets-changelog",
     {
       "repo": "seek-oss/oxc-config-seek"
     }
   ],
+  "format": "oxfmt",
   "commit": false,
   "linked": [],
   "access": "public",
