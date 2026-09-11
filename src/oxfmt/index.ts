@@ -8,11 +8,10 @@ export const defaults = {
   sortPackageJson: {
     sortScripts: true,
   },
-  // Mirrors the group ranks of `import-x/order`, which omits `internal`,
-  // `object`, `type` and `unknown` from its default groups and lumps them into
-  // a trailing group. Type imports are deliberately not given their own group;
-  // `import-x` ranks them by path when `type` is omitted.
+  // Deliberately tries to match `import-x/order`'s default groups to minimize
+  // changes with consumers migrating from eslint import-x to oxfmt
   sortImports: {
+    ignoreCase: false,
     groups: [
       'builtin',
       'external',
