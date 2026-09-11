@@ -83,6 +83,8 @@ Re-export it from your `oxfmt.config.ts`
 export { default } from 'oxc-config-seek/oxfmt';
 ```
 
+Imports are sorted in roughly the same group order as the `import-x/order` defaults.
+
 ## Known gaps
 
 Two rules are enabled by `eslint-config-seek` and cannot be enforced here. Both
