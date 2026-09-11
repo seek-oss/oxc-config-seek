@@ -17,7 +17,6 @@ export const defaults = {
       'builtin',
       'external',
       'parent',
-      { newlinesBetween: false },
       'sibling',
       { newlinesBetween: false },
       'index',

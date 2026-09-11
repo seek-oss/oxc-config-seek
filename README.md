@@ -92,7 +92,7 @@ knowing, as neither is expressible in `oxfmt`:
   `oxfmt` always sorts group members alphabetically.
 - `import-x` packs same-group imports onto consecutive lines and otherwise
   leaves blank lines between groups alone. `oxfmt` always inserts a blank
-  line between groups (except parent/sibling/index) and none within a group.
+  line between groups (except sibling/index) and none within a group.
 
 ## Known gaps
 
