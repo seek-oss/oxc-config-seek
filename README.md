@@ -83,16 +83,7 @@ Re-export it from your `oxfmt.config.ts`
 export { default } from 'oxc-config-seek/oxfmt';
 ```
 
-Imports are sorted into the same group order as the `import-x/order` defaults
-used by `eslint-config-seek`: builtins, externals, then relative imports
-(parent, sibling, index), then everything else. Two differences are worth
-knowing, as neither is expressible in `oxfmt`:
-
-- `import-x` leaves the order **within** a group alone by default, whereas
-  `oxfmt` always sorts group members alphabetically.
-- `import-x` packs same-group imports onto consecutive lines and otherwise
-  leaves blank lines between groups alone. `oxfmt` always inserts a blank
-  line between groups (except sibling/index) and none within a group.
+Imports are sorted in roughly the same group order as the `import-x/order` defaults.
 
 ## Known gaps
 
