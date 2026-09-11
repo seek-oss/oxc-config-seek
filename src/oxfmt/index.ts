@@ -17,7 +17,6 @@ export const defaults = {
       'external',
       'parent',
       'sibling',
-      { newlinesBetween: false },
       'index',
       ['internal', 'subpath', 'unknown'],
     ],
