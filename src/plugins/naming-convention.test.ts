@@ -1,5 +1,5 @@
-import typescriptPlugin from './typescript.ts';
 import { asOptions, testTs } from './tester.ts';
+import typescriptPlugin from './typescript.ts';
 
 const rule = typescriptPlugin.rules['naming-convention'];
 

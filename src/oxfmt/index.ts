@@ -8,6 +8,19 @@ export const defaults = {
   sortPackageJson: {
     sortScripts: true,
   },
+  // Deliberately tries to match `import-x/order`'s default groups to minimize
+  // changes with consumers migrating from eslint import-x to oxfmt
+  sortImports: {
+    ignoreCase: false,
+    groups: [
+      'builtin',
+      'external',
+      'parent',
+      'sibling',
+      'index',
+      ['internal', 'subpath', 'unknown'],
+    ],
+  },
   ignorePatterns: [
     'dist',
     '/.gantry/**/*.yaml',
