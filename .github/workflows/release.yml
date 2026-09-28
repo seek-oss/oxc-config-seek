@@ -79,6 +79,6 @@ jobs:
         run: pnpm build
 
       - name: Publish
-        uses: seek-oss/changesets-snapshot@9063bfcb495100964ee0912c5bcb30c4c434c1b3 # v0.3.2
+        uses: seek-oss/changesets-snapshot@6fb8fd0418ad0ba15b0224fd805c54934f90a0ec # `temp-cli-v3-summary branch`
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
