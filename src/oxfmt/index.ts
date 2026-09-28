@@ -5,9 +5,7 @@ export const defaults = {
   tabWidth: 2,
   trailingComma: 'all',
   printWidth: 80,
-  sortPackageJson: {
-    sortScripts: true,
-  },
+  sortPackageJson: true,
   // Deliberately tries to match `import-x/order`'s default groups to minimize
   // changes with consumers migrating from eslint import-x to oxfmt
   sortImports: {
@@ -30,6 +28,6 @@ export const defaults = {
     'pnpm-lock.yaml',
     'coverage',
   ],
-} satisfies OxfmtConfig;
+} as const satisfies OxfmtConfig;
 
 export default defineConfig(defaults);
