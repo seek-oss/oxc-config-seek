@@ -1,0 +1,3 @@
+{
+  extends: ['github>seek-oss/renovate-config-seek:default'],
+}
