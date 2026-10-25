@@ -225,7 +225,7 @@ export default defineConfig({
     },
     {
       files: [`**/cypress/**/*.{${allExtensions}}`],
-      jsPlugins: [resolvePlugin('eslint-plugin-cypress')],
+      jsPlugins: [resolvePlugin('oxc-config-seek/plugins/cypress')],
 
       env: {
         browser: true,

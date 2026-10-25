@@ -31,9 +31,12 @@ information, so this config sets `options.typeAware`, which needs
 `oxlint-tsgolint` present; without it oxlint exits with
 `Failed to find tsgolint executable`. No CLI flag is needed.
 
-A handful of rules oxlint does not implement natively are supplied by real
-ESLint plugins running through oxlint's `jsPlugins` bridge. Those plugins ship
-as dependencies of this package, so nothing extra needs installing.
+A handful of rules oxlint does not implement natively run through oxlint's
+`jsPlugins` bridge. They ship with this package, so nothing extra needs
+installing, and `eslint` itself is not installed. `cypress/*` and
+`react-js/no-deprecated` are ports of the upstream ESLint rules, and
+`typescript-js/naming-convention` only implements the `typeLike` PascalCase
+policy configured here, so its options cannot be changed.
 
 Because `eslint`, `react` and `typescript` are reserved plugin names in oxlint,
 those rules register under a `-js` alias. Use these names if you need to

@@ -21,6 +21,7 @@
     "./base": "./dist/base.mjs",
     "./extensions": "./dist/extensions.mjs",
     "./oxfmt": "./dist/oxfmt/index.mjs",
+    "./plugins/cypress": "./dist/plugins/cypress.mjs",
     "./plugins/react": "./dist/plugins/react.mjs",
     "./plugins/typescript": "./dist/plugins/typescript.mjs",
     "./vitest": "./dist/vitest/index.mjs",
@@ -40,9 +41,7 @@
     "version": "changeset version && oxfmt"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.67.0",
-    "eslint-plugin-cypress": "^6.4.4",
-    "eslint-plugin-react": "^7.37.5",
+    "@oxlint/plugins": "^1.80.0",
     "oxlint-plugin-eslint": "^1.80.0",
     "oxlint-plugin-import-zod": "^1.0.1"
   },
