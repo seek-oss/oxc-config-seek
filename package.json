@@ -35,6 +35,7 @@
     "release": "changeset publish",
     "test": "pnpm build && pnpm run \"/^test:/\"",
     "test:base": "oxlint --config src/base.ts fixtures",
+    "test:plugins": "node --test src/plugins/*.test.ts",
     "test:react": "oxlint --config src/index.ts fixtures",
     "test:vitest": "oxlint --config src/vitest/index.ts fixtures",
     "test:vitest-base": "oxlint --config src/vitest/base.ts fixtures",
