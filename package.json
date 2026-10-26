@@ -20,6 +20,7 @@
     ".": "./dist/index.mjs",
     "./base": "./dist/base.mjs",
     "./extensions": "./dist/extensions.mjs",
+    "./globs": "./dist/globs.mjs",
     "./oxfmt": "./dist/oxfmt/index.mjs",
     "./plugins/react": "./dist/plugins/react.mjs",
     "./plugins/typescript": "./dist/plugins/typescript.mjs",
@@ -33,10 +34,11 @@
     "lint": "pnpm build && oxlint && oxfmt --check",
     "release": "changeset publish",
     "test": "pnpm build && pnpm run \"/^test:/\"",
-    "test:base": "oxlint --config src/base.ts fixtures",
-    "test:react": "oxlint --config src/index.ts fixtures",
-    "test:vitest": "oxlint --config src/vitest/index.ts fixtures",
-    "test:vitest-base": "oxlint --config src/vitest/base.ts fixtures",
+    "test:base": "oxlint --config src/base.ts fixtures/entrypoints",
+    "test:overrides": "oxlint --config fixtures/overrides/oxlint.config.ts --deny-warnings fixtures/overrides",
+    "test:react": "oxlint --config src/index.ts fixtures/entrypoints",
+    "test:vitest": "oxlint --config src/vitest/index.ts fixtures/entrypoints",
+    "test:vitest-base": "oxlint --config src/vitest/base.ts fixtures/entrypoints",
     "version": "changeset version && oxfmt"
   },
   "dependencies": {

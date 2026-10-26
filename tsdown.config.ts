@@ -8,6 +8,7 @@ export default defineConfig({
     'src/vitest/base.ts',
     'src/oxfmt/index.ts',
     'src/extensions.ts',
+    'src/globs.ts',
     'src/plugins/react.ts',
     'src/plugins/typescript.ts',
   ],
