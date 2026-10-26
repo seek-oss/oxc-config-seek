@@ -22,7 +22,6 @@
     "./extensions": "./dist/extensions.mjs",
     "./oxfmt": "./dist/oxfmt/index.mjs",
     "./plugins/cypress": "./dist/plugins/cypress.mjs",
-    "./plugins/react": "./dist/plugins/react.mjs",
     "./plugins/typescript": "./dist/plugins/typescript.mjs",
     "./vitest": "./dist/vitest/index.mjs",
     "./vitest/base": "./dist/vitest/base.mjs",

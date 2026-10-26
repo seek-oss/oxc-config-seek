@@ -1,6 +1,6 @@
 import { defineConfig } from 'oxlint';
 
-import { allGlob, resolvePlugin } from './internal.ts';
+import { allGlob, tsGlob } from './internal.ts';
 
 export default defineConfig({
   plugins: ['react'],
@@ -12,9 +12,16 @@ export default defineConfig({
         browser: true,
       },
     },
+    {
+      files: [tsGlob],
+      rules: {
+        // Stands in for `react/no-deprecated`, which oxlint does not implement.
+        // It reports any API marked `@deprecated`, including React's in
+        // `@types/react` and `@types/react-dom`.
+        'typescript/no-deprecated': 'error',
+      },
+    },
   ],
-
-  jsPlugins: [resolvePlugin('oxc-config-seek/plugins/react')],
 
   rules: {
     'react/jsx-key': 'error',
@@ -31,9 +38,6 @@ export default defineConfig({
     'react/no-unescaped-entities': 'error',
     'react/no-unknown-property': 'error',
     'react/require-render-return': 'error',
-
-    'react-js/no-deprecated': 'error',
-
     'react/prefer-es6-class': ['error', 'always'],
     'react/self-closing-comp': 'error',
     'react/jsx-pascal-case': 'error',
