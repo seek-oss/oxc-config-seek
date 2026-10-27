@@ -1,48 +1,14 @@
-import { createRequire } from 'node:module';
+import type { ESTree, Plugin } from '@oxlint/plugins';
 
-const require = createRequire(import.meta.url);
-const rules =
-  require('@typescript-eslint/eslint-plugin/use-at-your-own-risk/rules') as Record<
-    string,
-    TypeScriptRule
-  >;
+// A fixed-policy port of `@typescript-eslint/naming-convention`, covering only
+// the options this package configures: `typeLike` names in PascalCase with a
+// single leading underscore allowed, and `enum` exempt.
+// https://github.com/typescript-eslint/typescript-eslint/blob/v8.68.0/packages/eslint-plugin/src/rules/naming-convention.ts
 
-interface TypeScriptRule {
-  meta: unknown;
-  create: (context: object) => Record<string, unknown>;
-}
-
-const namingConvention = rules['naming-convention'];
-
-if (!namingConvention) {
-  throw new Error(
-    '`@typescript-eslint/naming-convention` is not available in the installed @typescript-eslint/eslint-plugin',
-  );
-}
-
-const EMPTY_PARSER_SERVICES = {
-  esTreeNodeToTSNodeMap: new Map(),
-  tsNodeToESTreeNodeMap: new Map(),
-  program: null,
-};
-
-const withParserServices = (context: { sourceCode?: object }): object => {
-  const sourceCode = Object.create(context.sourceCode ?? {}) as object;
-
-  Object.defineProperty(sourceCode, 'parserServices', {
-    value: EMPTY_PARSER_SERVICES,
-    enumerable: true,
-  });
-
-  const derived = Object.create(context) as object;
-
-  Object.defineProperty(derived, 'sourceCode', {
-    value: sourceCode,
-    enumerable: true,
-  });
-
-  return derived;
-};
+// https://github.com/typescript-eslint/typescript-eslint/blob/v8.68.0/packages/eslint-plugin/src/rules/naming-convention-utils/format.ts
+const isPascalCase = (name: string) =>
+  name.length === 0 ||
+  (name[0] === name[0]?.toUpperCase() && !name.includes('_'));
 
 const plugin = {
   meta: {
@@ -50,11 +16,52 @@ const plugin = {
   },
   rules: {
     'naming-convention': {
-      ...namingConvention,
-      create: (context: object) =>
-        namingConvention.create(withParserServices(context)),
+      meta: {
+        type: 'suggestion',
+        // Accepted for config compatibility; the policy above is fixed.
+        schema: { type: 'array', items: { type: 'object' } },
+        messages: {
+          doesNotMatchFormat:
+            '{{type}} name `{{name}}` must match one of the following formats: {{formats}}',
+          doesNotMatchFormatTrimmed:
+            '{{type}} name `{{name}}` trimmed as `{{processedName}}` must match one of the following formats: {{formats}}',
+        },
+      },
+      create: (context) => {
+        const check = (type: string, node: ESTree.BindingIdentifier) => {
+          const { name } = node;
+          const processedName = name.startsWith('_') ? name.slice(1) : name;
+
+          if (isPascalCase(processedName)) {
+            return;
+          }
+
+          context.report({
+            node,
+            messageId:
+              processedName === name
+                ? 'doesNotMatchFormat'
+                : 'doesNotMatchFormatTrimmed',
+            data: { type, name, processedName, formats: 'PascalCase' },
+          });
+        };
+
+        const checkClass = (node: ESTree.Class) => {
+          if (node.id) {
+            check('Class', node.id);
+          }
+        };
+
+        return {
+          ClassDeclaration: checkClass,
+          ClassExpression: checkClass,
+          TSInterfaceDeclaration: (node) => check('Interface', node.id),
+          TSTypeAliasDeclaration: (node) => check('Type Alias', node.id),
+          TSTypeParameter: (node) => check('Type Parameter', node.name),
+        };
+      },
     },
   },
-};
+} satisfies Plugin;
 
 export default plugin;

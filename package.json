@@ -21,7 +21,7 @@
     "./base": "./dist/base.mjs",
     "./extensions": "./dist/extensions.mjs",
     "./oxfmt": "./dist/oxfmt/index.mjs",
-    "./plugins/react": "./dist/plugins/react.mjs",
+    "./plugins/cypress": "./dist/plugins/cypress.mjs",
     "./plugins/typescript": "./dist/plugins/typescript.mjs",
     "./vitest": "./dist/vitest/index.mjs",
     "./vitest/base": "./dist/vitest/base.mjs",
@@ -34,15 +34,14 @@
     "release": "changeset publish",
     "test": "pnpm build && pnpm run \"/^test:/\"",
     "test:base": "oxlint --config src/base.ts fixtures",
+    "test:plugins": "node --test src/plugins/*.test.ts",
     "test:react": "oxlint --config src/index.ts fixtures",
     "test:vitest": "oxlint --config src/vitest/index.ts fixtures",
     "test:vitest-base": "oxlint --config src/vitest/base.ts fixtures",
     "version": "changeset version && oxfmt"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.67.0",
-    "eslint-plugin-cypress": "^6.4.4",
-    "eslint-plugin-react": "^7.37.5",
+    "@oxlint/plugins": "^1.80.0",
     "oxlint-plugin-eslint": "^1.80.0",
     "oxlint-plugin-import-zod": "^1.0.1"
   },
