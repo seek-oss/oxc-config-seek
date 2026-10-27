@@ -54,8 +54,8 @@ Pick the entrypoint that matches your project and re-export it from your
 `oxlint.config.ts` via oxlint's `extends`:
 
 ```ts
-import { defineConfig } from 'oxlint';
 import config from 'oxc-config-seek';
+import { defineConfig } from 'oxlint';
 
 export default defineConfig({
   extends: [config],
@@ -103,8 +103,8 @@ when a config is consumed through `extends`, but they apply normally in **your
 own** root config, which is why this has to be opt-in:
 
 ```ts
-import { defineConfig } from 'oxlint';
 import config from 'oxc-config-seek';
+import { defineConfig } from 'oxlint';
 
 export default defineConfig({
   extends: [config],
