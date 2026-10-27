@@ -1,16 +1,13 @@
 import { defineConfig } from 'oxlint';
 
-import { allExtensions } from '../internal.ts';
+import { testGlobs } from '../globs.ts';
 import shared from '../shared.ts';
 
 export default defineConfig({
   extends: [shared],
   overrides: [
     {
-      files: [
-        `**/__tests__/**/*.{${allExtensions}}`,
-        `**/*.{spec,test}.{${allExtensions}}`,
-      ],
+      files: [...testGlobs],
       plugins: ['vitest'],
       rules: {
         'vitest/expect-expect': 'error',

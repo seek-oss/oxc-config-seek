@@ -1,12 +1,7 @@
 import { defineConfig } from 'oxlint';
 
-import {
-  allExtensions,
-  allGlob,
-  jsGlob,
-  resolvePlugin,
-  tsGlob,
-} from './internal.ts';
+import { allGlob, cypressGlob, jsGlob, tsGlob } from './globs.ts';
+import { resolvePlugin } from './internal.ts';
 
 export default defineConfig({
   plugins: ['eslint', 'import', 'typescript', 'node', 'unicorn'],
@@ -224,7 +219,7 @@ export default defineConfig({
       },
     },
     {
-      files: [`**/cypress/**/*.{${allExtensions}}`],
+      files: [cypressGlob],
       jsPlugins: [resolvePlugin('eslint-plugin-cypress')],
 
       env: {
