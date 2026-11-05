@@ -220,7 +220,7 @@ export default defineConfig({
     },
     {
       files: [cypressGlob],
-      jsPlugins: [resolvePlugin('eslint-plugin-cypress')],
+      jsPlugins: [resolvePlugin('oxc-config-seek/plugins/cypress')],
 
       env: {
         browser: true,
