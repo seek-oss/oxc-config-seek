@@ -33,22 +33,26 @@ information, so this config sets `options.typeAware`, which needs
 
 A handful of rules oxlint does not implement natively run through oxlint's
 `jsPlugins` bridge. They ship with this package, so nothing extra needs
-installing, and `eslint` itself is not installed. `cypress/*` and
-`react-js/no-deprecated` are ports of the upstream ESLint rules, and
-`typescript-js/naming-convention` only implements the `typeLike` PascalCase
-policy configured here, so its options cannot be changed.
+installing, and `eslint` itself is not installed. `cypress/*` are ports of the
+upstream ESLint rules, and `typescript-js/naming-convention` only implements the
+`typeLike` PascalCase policy configured here, so its options cannot be changed.
+
+`react/no-deprecated` is not implemented by oxlint, which defers to
+`typescript/no-deprecated` instead. The React entrypoints enable that rule on
+TypeScript files; it relies on the `@deprecated` tags in `@types/react` and
+`@types/react-dom`, and also reports deprecated APIs from any other package.
 
 Because `eslint`, `react` and `typescript` are reserved plugin names in oxlint,
 those rules register under a `-js` alias. Use these names if you need to
 override or disable one:
 
-| Enabled as                        | Is                                     |
-| --------------------------------- | -------------------------------------- |
-| `eslint-js/no-undef-init`         | `no-undef-init`                        |
-| `eslint-js/no-octal-escape`       | `no-octal-escape`                      |
-| `eslint-js/spaced-comment`        | `spaced-comment`                       |
-| `eslint-js/no-restricted-syntax`  | `no-restricted-syntax`                 |
-| `react-js/no-deprecated`          | `react/no-deprecated`                  |
+| Enabled as                       | Is                     |
+| -------------------------------- | ---------------------- |
+| `eslint-js/no-undef-init`        | `no-undef-init`        |
+| `eslint-js/no-octal-escape`      | `no-octal-escape`      |
+| `eslint-js/spaced-comment`       | `spaced-comment`       |
+| `eslint-js/no-restricted-syntax` | `no-restricted-syntax` |
+
 | `typescript-js/naming-convention` | `@typescript-eslint/naming-convention` |
 
 ## Linting (`oxlint`)

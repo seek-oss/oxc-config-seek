@@ -10,7 +10,6 @@ export default defineConfig({
     'src/extensions.ts',
     'src/plugins/cypress.ts',
     'src/globs.ts',
-    'src/plugins/react.ts',
     'src/plugins/typescript.ts',
   ],
   format: ['esm'],
