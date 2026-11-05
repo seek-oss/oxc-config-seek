@@ -1,6 +1,7 @@
 import { defineConfig } from 'oxlint';
 
-import { allGlob, resolvePlugin } from './internal.ts';
+import { allGlob } from './globs.ts';
+import { resolvePlugin } from './internal.ts';
 
 export default defineConfig({
   plugins: ['react'],

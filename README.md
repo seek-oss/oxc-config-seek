@@ -57,8 +57,8 @@ Pick the entrypoint that matches your project and re-export it from your
 `oxlint.config.ts` via oxlint's `extends`:
 
 ```ts
-import { defineConfig } from 'oxlint';
 import config from 'oxc-config-seek';
+import { defineConfig } from 'oxlint';
 
 export default defineConfig({
   extends: [config],
@@ -77,6 +77,54 @@ to build globs, mirroring `eslint-config-seek/extensions`.
 
 Composition mirrors `eslint-config-seek`: `.` = `base` + `react`, `base` =
 shared, `vitest` = `vitest/base` + `react`, `vitest/base` = shared + Vitest.
+
+### Overriding rules
+
+Unlike ESLint, oxlint applies `overrides` after top-level `rules`, regardless
+of where they are declared. Many rules in this config are set inside
+`overrides`, so a top-level rule in your config may be silently ignored for
+those files. Put your own rule changes in an override that targets the same
+files instead.
+
+`oxc-config-seek/globs` exports the globs this config uses, so you don't need
+to copy them or keep them in sync:
+
+```ts
+import { defineConfig } from 'oxlint';
+import config from 'oxc-config-seek/vitest/base';
+import { testGlobs, tsGlob } from 'oxc-config-seek/globs';
+
+export default defineConfig({
+  extends: [config],
+  overrides: [
+    {
+      files: [tsGlob],
+      rules: {
+        'typescript/consistent-type-definitions': ['error', 'type'],
+      },
+    },
+    {
+      files: [...testGlobs],
+      plugins: ['vitest'],
+      rules: {
+        'vitest/no-disabled-tests': 'off',
+      },
+    },
+  ],
+});
+```
+
+| Export        | Matches                                          |
+| ------------- | ------------------------------------------------ |
+| `jsGlob`      | JavaScript files                                 |
+| `tsGlob`      | TypeScript files                                 |
+| `allGlob`     | JavaScript and TypeScript files                  |
+| `cypressGlob` | JavaScript and TypeScript files under `cypress/` |
+| `testGlobs`   | Vitest test files (a read-only array; spread it) |
+
+The `vitest` plugin is only enabled inside this config's test-file override,
+so an override that changes a `vitest/*` rule must also list
+`plugins: ['vitest']`. Without it, oxlint silently ignores the rule change.
 
 ## Formatting (`oxfmt`)
 
@@ -106,8 +154,8 @@ when a config is consumed through `extends`, but they apply normally in **your
 own** root config, which is why this has to be opt-in:
 
 ```ts
-import { defineConfig } from 'oxlint';
 import config from 'oxc-config-seek';
+import { defineConfig } from 'oxlint';
 
 export default defineConfig({
   extends: [config],
